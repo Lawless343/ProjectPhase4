@@ -22,6 +22,7 @@ def CreateUsers():
     # close file to save data
     ########## Write the line of code that will close the file UserFile
     UserFile.close()
+    printuserinfo()
        
     
 
@@ -178,7 +179,7 @@ if __name__ == "__main__":
     print()
     print("##### Data Entry #####")
     ########## Write the line of code to assign UserRole and UserName to the function Login
-    UserRole, UserName = Login(UserRole, UserName)
+    UserRole, UserName = Login()
     
     DetailsPrinted = False  ###
     EmpTotals = {} ###
@@ -190,7 +191,7 @@ if __name__ == "__main__":
         print("Welcome, " + UserName + ". Your role is " + UserRole)
     # only admin users can enter data
         ##### write the if statement that will check to see if the UserRole is equal to ADMIN (NOTE: code will show red error lines until this line is written)
-        if UserRole == 'ADMIN':       
+        if UserRole.upper() == 'ADMIN':       
    
             EmpFile = open("Employees.txt", "a+")                
             while True:
@@ -206,4 +207,4 @@ if __name__ == "__main__":
         # close file to save data
             EmpFile.close()    
         printinfo(DetailsPrinted)
-        printuserinfo()
+        
